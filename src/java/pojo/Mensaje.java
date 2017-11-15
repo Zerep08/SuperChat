@@ -56,7 +56,11 @@ public class Mensaje {
     @ManyToOne
     @JoinColumn(name="idContacto",nullable=true)
     private Contacto idContacto;
-
+    
+    public Mensaje(){
+        
+    }
+    
     /**
      * @return the idMensaje
      */
