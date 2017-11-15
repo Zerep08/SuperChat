@@ -46,11 +46,11 @@ public class Mensaje {
     private Date dt_recibido;
     
     @ManyToOne
-    @Column(name="idContenido",nullable=true)
+    @JoinColumn(name="idContenido",nullable=true)
     private Contenido idContenido;
     
     @ManyToOne
-    @Column(name="idUsuario",nullable=true)
+    @JoinColumn(name="idUsuario",nullable=true)
     private Usuario idUsuario;
     
     @ManyToOne

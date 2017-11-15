@@ -27,11 +27,11 @@ public class Contacto {
  private int idUsuario;
  
  @ManyToOne
- @JoinColumn(name="idUsuario", nullable = false)
+ @JoinColumn(name="idUsuarioA", nullable = false)
  private Usuario idUsuarioA;
  
  @ManyToOne
- @JoinColumn(name = "idUsuario", nullable=false)
+ @JoinColumn(name = "idUsuarioB", nullable=false)
  private Usuario idUsuarioB;
 
  public Contacto(){
