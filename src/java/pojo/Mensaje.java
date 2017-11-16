@@ -27,34 +27,34 @@ public class Mensaje {
     @Column(name="idMensaje")
     private  int idMensaje;
     
-    @Column(name="leido",nullable=true)
+    @Column(name="leido",nullable=false)
     private boolean leido;
     
-    @Column(name="enviado",nullable=true)
+    @Column(name="enviado",nullable=false)
     private boolean enviado;
     
-    @Column(name="recibido",nullable=true)
+    @Column(name="recibido",nullable=false)
     private boolean recibido;
     
-    @Column(name="dt_leido",nullable=true)
+    @Column(name="dt_leido",nullable=false)
     private Date dt_leido;
     
-    @Column(name="dt_enviado",nullable=true)
+    @Column(name="dt_enviado",nullable=false)
     private Date dt_enviado;
     
-    @Column(name="dt_recibido",nullable=true)
+    @Column(name="dt_recibido",nullable=false)
     private Date dt_recibido;
     
     @ManyToOne
-    @Column(name="idContenido",nullable=true)
+    @Column(name="idContenido",nullable=false)
     private Contenido idContenido;
     
     @ManyToOne
-    @Column(name="idUsuario",nullable=true)
+    @Column(name="idUsuario",nullable=false)
     private Usuario idUsuario;
     
     @ManyToOne
-    @JoinColumn(name="idContacto",nullable=true)
+    @JoinColumn(name="idContacto",nullable=false)
     private Contacto idContacto;
     
     public Mensaje(){

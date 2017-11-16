@@ -5,11 +5,12 @@
  */
 package pojo;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 /**
  *
@@ -144,4 +145,21 @@ public class Usuario {
     }
     
     
+    
+
+    /**
+     * @return the idUsuaio
+     */
+    public int getIdUsuaio() {
+        return idUsuario;
+    }
+
+    /**
+     * @param idUsuaio the idUsuaio to set
+     */
+    public void setIdUsuaio(int idUsuaio) {
+        this.idUsuario = idUsuaio;
+    }
+
+
 }
