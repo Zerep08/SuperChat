@@ -3,13 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/zerep08/NetBeansProjects/Whats/SuperChat/src/java/pojo/Usuario.java</file>
-            <file>file:/home/zerep08/NetBeansProjects/Whats/SuperChat/src/java/pojo/Contacto.java</file>
-            <file>file:/home/zerep08/NetBeansProjects/Whats/SuperChat/src/java/services/Consultas.java</file>
-            <file>file:/home/zerep08/NetBeansProjects/Whats/SuperChat/test/PruebaUsuario.java</file>
-            <file>file:/home/zerep08/NetBeansProjects/Whats/SuperChat/src/java/pojo/Contenido.java</file>
-            <file>file:/home/zerep08/NetBeansProjects/Whats/SuperChat/src/java/dao/UsuarioDAO.java</file>
-            <file>file:/home/zerep08/NetBeansProjects/Whats/SuperChat/src/java/dao/ContactoDAO.java</file>
+            <file>file:/C:/Users/ol/Documents/NetBeansProjects/Clon/SuperChat/src/java/dao/ContenidoDAO.java</file>
+            <file>file:/C:/Users/ol/Documents/NetBeansProjects/Clon/SuperChat/src/java/dao/MensajeDAO.java</file>
+            <file>file:/C:/Users/ol/Documents/NetBeansProjects/Clon/SuperChat/src/java/dao/ContactoDAO.java</file>
+            <file>file:/C:/Users/ol/Documents/NetBeansProjects/Clon/SuperChat/src/java/pojo/Contenido.java</file>
+            <file>file:/C:/Users/ol/Documents/NetBeansProjects/Clon/SuperChat/src/java/pojo/Contacto.java</file>
+            <file>file:/C:/Users/ol/Documents/NetBeansProjects/Clon/SuperChat/src/java/hbn/HibernateUtil.java</file>
         </group>
     </open-files>
 </project-private>

@@ -35,7 +35,11 @@ public class MensajeDAO {
   public boolean saveMensaje(Contenido contenido,Usuario usuario){
         Mensaje mensajeDeTanque=new Mensaje();
         mensajeDeTanque.setDt_enviado(new Date());
+        mensajeDeTanque.setDt_recibido(new Date());
+        mensajeDeTanque.setDt_leido(new Date());
         mensajeDeTanque.setEnviado(true);
+        mensajeDeTanque.setRecibido(true);
+        mensajeDeTanque.setLeido(true);
         mensajeDeTanque.setIdContenido(contenido);
         mensajeDeTanque.setIdUsuario(usuario);
         try{
