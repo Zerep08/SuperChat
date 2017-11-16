@@ -50,4 +50,8 @@ public class MensajeDAO {
         }
         return true;
     }
+  
+    public void close(){
+        HibernateUtil.closeLocalSession();
+    }
 }

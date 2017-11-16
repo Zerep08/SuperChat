@@ -5,6 +5,7 @@
  */
 
 import dao.ContactoDAO;
+import dao.MensajeDAO;
 import dao.UsuarioDAO;
 import hbn.HibernateUtil;
 import org.hibernate.Session;
@@ -52,6 +53,7 @@ public class PruebaUsuario {
     cDAO.createContacto(a, b);
     cDAO.close();
     
+ 
     
     }
 }
