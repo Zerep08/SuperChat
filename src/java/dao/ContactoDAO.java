@@ -27,6 +27,8 @@ public class ContactoDAO {
         this.session=session;
     }
     
+    
+    
     public void createContacto(Usuario a,Usuario b){
         Contacto contacto=new Contacto();
         contacto.setIdUsuarioA(a);

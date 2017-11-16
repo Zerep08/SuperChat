@@ -6,8 +6,10 @@
 package dao;
 
 import hbn.HibernateUtil;
+import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Projections;
 import pojo.Contacto;
 import pojo.Usuario;
 
@@ -36,7 +38,7 @@ public class UsuarioDAO {
     usuario.setEliminado(eliminado);
     usuario.setContrasena(contrasena);
     
-
+  
     
     try{
         
@@ -48,6 +50,18 @@ public class UsuarioDAO {
          e.printStackTrace();
     }
     }
+    //Devuelve todos los usuarios
+    public List<Usuario> getAllUsers(){
+        return (List<Usuario>) this.session.createCriteria(Usuario.class).list();
+    }
+    
+    public List<Usuario> getAllUsersByName(){
+        return (List<Usuario>) this.session.createCriteria(Usuario.class)
+                .setProjection(Projections.projectionList()
+                        .add(Projections.groupProperty("nombre"))
+                ).list();
+    }
+    
     
     public void close(){
         HibernateUtil.closeLocalSession();  
