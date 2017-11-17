@@ -5,6 +5,7 @@
  */
 
 import dao.ContactoDAO;
+import dao.ContenidoDAO;
 import dao.MensajeDAO;
 import dao.UsuarioDAO;
 import hbn.HibernateUtil;
@@ -15,6 +16,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import pojo.Contenido;
 import pojo.Usuario;
 
 /**
@@ -45,6 +47,7 @@ public class PruebaUsuario {
     
     @Test
     public void hello() {
+   /*
     Session s=HibernateUtil.getLocalSession();
     Usuario a=(Usuario)s.load(Usuario.class, 1);
     Usuario b=(Usuario)s.load(Usuario.class, 2);
@@ -52,8 +55,13 @@ public class PruebaUsuario {
     ContactoDAO cDAO=new ContactoDAO(s);
     cDAO.createContacto(a, b);
     cDAO.close();
+    */
+
     
- 
+    MensajeDAO msj = new MensajeDAO();
     
+    msj.saveMensaje(1, 1, 1);
+    msj.close();
+  
     }
 }

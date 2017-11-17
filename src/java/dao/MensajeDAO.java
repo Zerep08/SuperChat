@@ -11,47 +11,56 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
+import pojo.Contacto;
 import pojo.Contenido;
 import pojo.Mensaje;
 import pojo.Usuario;
-
-
 
 /**
  *
  * @author RigoBono
  */
 public class MensajeDAO {
+
     Session session;
-    
-    public MensajeDAO(){
-        session=HibernateUtil.getLocalSession();
+
+    public MensajeDAO() {
+        session = HibernateUtil.getLocalSession();
     }
-    
-    public  Mensaje getMensajeById(int id){
-        return (Mensaje)session.load(Mensaje.class, id);
+
+    public Mensaje getMensajeById(int id) {
+        return (Mensaje) session.load(Mensaje.class, id);
     }
-    
-  public boolean saveMensaje(Contenido contenido,Usuario usuario){
-        Mensaje mensajeDeTanque=new Mensaje();
+
+    public boolean saveMensaje(int idContenido, int idUsuario, int idContacto) {
+        Mensaje mensajeDeTanque = new Mensaje();
+        Usuario user = (Usuario)session.load(Usuario.class, idUsuario);
+        Contenido cont = (Contenido)session.load(Contenido.class, idContenido);
+        Contacto contacto = (Contacto)session.load(Contacto.class, idContacto);
         mensajeDeTanque.setDt_enviado(new Date());
+        mensajeDeTanque.setDt_recibido(new Date());
+        mensajeDeTanque.setDt_leido(new Date());
         mensajeDeTanque.setEnviado(true);
-        mensajeDeTanque.setIdContenido(contenido);
-        mensajeDeTanque.setIdUsuario(usuario);
-        try{
-            Transaction transaccion=session.beginTransaction();
+        mensajeDeTanque.setRecibido(true);
+        mensajeDeTanque.setLeido(true);
+        mensajeDeTanque.setIdContenido(cont);
+        mensajeDeTanque.setIdUsuario(user);
+        mensajeDeTanque.setIdContacto(contacto);
+        try {
+            Transaction transaccion = session.beginTransaction();
             session.save(mensajeDeTanque);
             transaccion.commit();
             return true;
-        }catch(Exception e){
-            
-        }finally{
-            
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        } finally {
+
         }
         return true;
     }
-  
-    public void close(){
+
+    public void close() {
         HibernateUtil.closeLocalSession();
     }
 }

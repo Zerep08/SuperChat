@@ -50,7 +50,7 @@ public class Mensaje {
     private Contenido idContenido;
     
     @ManyToOne
-    @Column(name="idUsuario",nullable=false)
+    @JoinColumn(name="idUsuario",nullable=false)
     private Usuario idUsuario;
     
     @ManyToOne
