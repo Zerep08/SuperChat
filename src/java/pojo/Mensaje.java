@@ -8,6 +8,7 @@ package pojo;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -45,17 +46,24 @@ public class Mensaje {
     @Column(name="dt_recibido",nullable=false)
     private Date dt_recibido;
     
+   // @ManyToOne
+    //@Column(name="idContenido",nullable=false)
+   // private Contenido idContenido;
+    
+   // @ManyToOne
+   // @Column(name="idUsuario",nullable=false)
     @ManyToOne
-    @Column(name="idContenido",nullable=false)
+    @JoinColumn(name="idContenido",nullable=true)
     private Contenido idContenido;
     
-    @ManyToOne
-    @Column(name="idUsuario",nullable=false)
-    private Usuario idUsuario;
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="idUsuario1",nullable=false)
+    private Usuario idUsuario1;
+    
     
     @ManyToOne
-    @JoinColumn(name="idContacto",nullable=false)
-    private Contacto idContacto;
+    @JoinColumn(name="idContacto1",nullable=false)
+    private Contacto idContacto1;
     
     public Mensaje(){
         
@@ -176,29 +184,29 @@ public class Mensaje {
     /**
      * @return the idUsuario
      */
-    public Usuario getIdUsuario() {
-        return idUsuario;
+    public Usuario getIdUsuario1() {
+        return idUsuario1;
     }
 
     /**
      * @param idUsuario the idUsuario to set
      */
-    public void setIdUsuario(Usuario idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setIdUsuario1(Usuario idUsuario) {
+        this.idUsuario1 = idUsuario;
     }
 
     /**
      * @return the idContacto
      */
-    public Contacto getIdContacto() {
-        return idContacto;
+    public Contacto getIdContacto1() {
+        return idContacto1;
     }
 
     /**
      * @param idContacto the idContacto to set
      */
-    public void setIdContacto(Contacto idContacto) {
-        this.idContacto = idContacto;
+    public void setIdContacto1(Contacto idContacto) {
+        this.idContacto1 = idContacto;
     }
     
     

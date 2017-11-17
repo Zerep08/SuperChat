@@ -22,7 +22,7 @@ import javax.persistence.Table;
 public class Usuario {
     @Id @GeneratedValue
     @Column(name = "idUsuario", nullable = false)
-    private int idUsuario;
+    private int idusuario;
     
     @Column(name = "nombre",nullable = false)
     private String nombre;
@@ -44,20 +44,6 @@ public class Usuario {
     
     public Usuario(){
         
-    }
-
-    /**
-     * @return the idUsuario
-     */
-    public int getIdUsuario() {
-        return idUsuario;
-    }
-
-    /**
-     * @param idUsuario the idUsuario to set
-     */
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
     }
 
     /**
@@ -143,23 +129,19 @@ public class Usuario {
     public void setEliminado(boolean eliminado) {
         this.eliminado = eliminado;
     }
-    
-    
-    
 
     /**
-     * @return the idUsuaio
+     * @return the idusuario
      */
-    public int getIdUsuaio() {
-        return idUsuario;
+    public int getIdusuario() {
+        return idusuario;
     }
 
     /**
-     * @param idUsuaio the idUsuaio to set
+     * @param idusuario the idusuario to set
      */
-    public void setIdUsuaio(int idUsuaio) {
-        this.idUsuario = idUsuaio;
+    public void setIdusuario(int idusuario) {
+        this.idusuario = idusuario;
     }
-
-
+ 
 }

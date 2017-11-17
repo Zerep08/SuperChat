@@ -24,14 +24,14 @@ public class Contacto {
     
  @Id @GeneratedValue
  @Column(name="idContacto", nullable = false)
- private int idUsuario;
+ private int idContacto;
  
  @ManyToOne
- @JoinColumn(name="idUsuario", nullable = false)
+ @JoinColumn(name="idUsuarioA", nullable = false)
  private Usuario idUsuarioA;
  
  @ManyToOne
- @JoinColumn(name = "idUsuario", nullable=false)
+ @JoinColumn(name = "idUsuarioB", nullable=false)
  private Usuario idUsuarioB;
 
  public Contacto(){
@@ -41,15 +41,15 @@ public class Contacto {
     /**
      * @return the idUsuario
      */
-    public int getIdUsuario() {
-        return idUsuario;
+    public int getIdContacto() {
+        return idContacto;
     }
 
     /**
      * @param idUsuario the idUsuario to set
      */
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setIdContacto(int idUsuario) {
+        this.idContacto = idUsuario;
     }
 
     /**

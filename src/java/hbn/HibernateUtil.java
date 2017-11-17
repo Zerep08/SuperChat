@@ -6,7 +6,6 @@
 package hbn;
 
 import org.hibernate.Session;
-import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -15,26 +14,27 @@ import org.hibernate.cfg.Configuration;
  * Hibernate Utility class with a convenient method to get Session Factory
  * object.
  *
- * @author RigoBono
+ * @author Francisco
  */
 public class HibernateUtil {
 
-    private static final SessionFactory sessionFactory;
-    private static final ThreadLocal localSession;
+    private static final SessionFactory sessionFactory; 
+    private static final ThreadLocal localSession; 
     
     static {
         try {
            Configuration config = new Configuration();
-            config.configure("hibernate.cfg.xml");
+            config.configure("hibernate.cfg.xml"); 
             StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().
             applySettings(config.getProperties());
             sessionFactory = config.buildSessionFactory(builder.build());
+            
         } catch (Throwable ex) {
             // Log the exception. 
             System.err.println("Initial SessionFactory creation failed." + ex);
             throw new ExceptionInInitializerError(ex);
         }
-        localSession = new ThreadLocal();
+        localSession = new ThreadLocal(); 
     }
     
     public static SessionFactory getSessionFactory() {
@@ -42,19 +42,19 @@ public class HibernateUtil {
     }
     
      public static Session getLocalSession() {
-        Session session = (Session) localSession.get();
+        Session session = (Session) localSession.get(); 
         if (session == null) {
-            session = sessionFactory.openSession();
-            localSession.set(session);
+            session = sessionFactory.openSession(); 
+            localSession.set(session);              
             System.out.println("\nsesion iniciada");
         }
         return session;
     }
      
      public static void closeLocalSession() {
-        Session session = (Session) localSession.get();
-        if (session != null) session.close();
-        localSession.set(null);
+        Session session = (Session) localSession.get(); 
+        if (session != null) session.close();   
+        localSession.set(null);                 
         System.out.println("sesion cerrada\n");
     }
 }
