@@ -1,22 +1,35 @@
 # WhatsApp 2.0
 
-Es una plataforma de **comunicaciÛn** y enlace de personas.
+Es una plataforma de **comunicaci√≥n** y enlace de personas.
 
 Como desarrolladores teniamos la meta de crear un **chat**. Teniendo este reto, decidimos utilizar
-la metodologÌa **SCRUM** para desarrollarlo y llevarlo a cabo.
+la metodolog√≠a **SCRUM** para desarrollarlo y llevarlo a cabo.
 
 Herramientas utilizadas:
-Por medio de una base de datos, angular, java, java ee, ajax y hibernate, realizamos la comunicaciÛn de nuestro chat y el backend.
+Por medio de una base de datos, angular, java, java ee, ajax y hibernate, realizamos la comunicaci√≥n de nuestro chat y el backend.
 Bootstrap, CSS y HTML5 para el frontend.
 Github como controlador de versiones.
 
-InformaciÛn del equipo:
+Informaci√≥n del equipo:
 * Enid Medina: Front-End
 * Elizabeth Vera: Front-End y base de datos.
 * Serguio Jimenez: Back-End y base de datos.
-* Francisco PerÈz: Back-End
-* Yhair DÌaz: Back-End
-* Enrique PeÒa: Back-End
+* Francisco Per√©z: Back-End
+* Yhair D√≠az: Back-End
+* Enrique Pe√±a: Back-End
+
+
+Instrucciones para el usuario:
+1. Ingresa a la p√°gina web
+2. Registro (Ingresa tus datos)
+3. Revisa tus datos
+4. Aceptar
+5. Confirmar n√∫mero de t√©lefono
+6. Ingresa con tus datos y empieza a conectar con tus amigos y conocidos!
 
 Creditos y agradecimientos: 
-Agradecemos a nuestro profesor Rigo AlvarÈz 
+Agradecemos a nuestro profesor Rigo Alvar√©z 
+
+Todos los derechos reservados ¬© Equipo Yhair Prohibida la reproducci√≥n total o parcial de esta obra,
+por cualquier medio, sin la autorizaci√≥n del equipo.
+Licencia de Software (2017)
