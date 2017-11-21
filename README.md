@@ -28,7 +28,7 @@ Instrucciones para el usuario:
 6. Ingresa con tus datos y empieza a conectar con tus amigos y conocidos!
 
 Creditos y agradecimientos: 
-Agradecemos a nuestro profesor Rigo Alvaréz 
+Agradecemos a nuestro profesor [Rigo Alvaréz](https://www.linkedin.com/in/alfredo-rigoberto-alvarez-suarez-039891b0/)
 
 Todos los derechos reservados © Equipo Yhair Prohibida la reproducción total o parcial de esta obra,
 por cualquier medio, sin la autorización del equipo.
