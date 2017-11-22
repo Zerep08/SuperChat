@@ -1,6 +1,6 @@
 # WhatsApp 2.0
 
-Es una plataforma de **comunicación** y enlace de personas.
+Es una plataforma de **comunicación** y enlace de personas, mediante mensajes de texto o multimedia.
 
 Como desarrolladores teniamos la meta de crear un **chat**. Teniendo este reto, decidimos utilizar
 la metodología **SCRUM** para desarrollarlo y llevarlo a cabo.
