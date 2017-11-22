@@ -1,5 +1,6 @@
 # WhatsApp 2.0
 (Branch master es la de Yhair)
+
 Es una plataforma de **comunicación** y enlace de personas, mediante mensajes de texto o multimedia.
 
 Como desarrolladores teniamos la meta de crear un **chat**. Teniendo este reto, decidimos utilizar
