@@ -5,9 +5,12 @@
  */
 
 import dao.ContactoDAO;
+import dao.MensajeDAO;
 import dao.UsuarioDAO;
 import hbn.HibernateUtil;
+import java.util.List;
 import org.hibernate.Session;
+import org.json.JSONArray;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -44,13 +47,14 @@ public class PruebaUsuario {
     
     @Test
     public void hello() {
-    Session s=HibernateUtil.getLocalSession();
-    Usuario a=(Usuario)s.load(Usuario.class, 1);
-    Usuario b=(Usuario)s.load(Usuario.class, 2);
+//    Session s=HibernateUtil.getLocalSession();
+//    Usuario a=(Usuario)s.load(Usuario.class, 1);
+//    Usuario b=(Usuario)s.load(Usuario.class, 2);
+//    
+        MensajeDAO mDAO=new MensajeDAO();       
+        JSONArray json = mDAO.getChatMessages(1, 2);
+        System.out.println("json: "+json.toString());     
     
-    ContactoDAO cDAO=new ContactoDAO(s);
-    cDAO.createContacto(a, b);
-    cDAO.close();
     
     
     }

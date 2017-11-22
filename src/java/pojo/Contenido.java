@@ -5,6 +5,7 @@
  */
 package pojo;
 
+import com.google.gson.annotations.Expose;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,9 +27,11 @@ public class Contenido {
  @Column(name = "idContenido")
 private int idContenido;
 
+@Expose
 @Column(name = "texto")
 private String texto;
 
+@Expose
 @Column(name = "emoji")
 private String emoji;
 

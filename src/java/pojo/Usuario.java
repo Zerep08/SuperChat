@@ -6,6 +6,7 @@
 package pojo;
 
 
+import com.google.gson.annotations.Expose;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Column;
@@ -20,25 +21,32 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "usuario", catalog = "whatsApp")
 public class Usuario {
+    @Expose
     @Id @GeneratedValue
     @Column(name = "idUsuario", nullable = false)
     private int idUsuario;
     
+    @Expose
     @Column(name = "nombre",nullable = false)
     private String nombre;
     
+    @Expose
     @Column(name = "telefono", nullable = false)
     private String telefono;
     
+    @Expose
     @Column(name = "conectado", nullable = false)
     private boolean conectado;
     
+    @Expose
     @Column(name = "fotografia", nullable = false)
     private String fotografia;
     
+    @Expose
     @Column(name = "contrasena", nullable = false)
     private String contrasena;
     
+    @Expose
     @Column(name = "eliminado", nullable = false)
     private boolean eliminado;
     
@@ -146,20 +154,6 @@ public class Usuario {
     
     
     
-
-    /**
-     * @return the idUsuaio
-     */
-    public int getIdUsuaio() {
-        return idUsuario;
-    }
-
-    /**
-     * @param idUsuaio the idUsuaio to set
-     */
-    public void setIdUsuaio(int idUsuaio) {
-        this.idUsuario = idUsuaio;
-    }
 
 
 }

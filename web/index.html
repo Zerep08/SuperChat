@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myApp">
 
 <head>
   <meta charset="utf-8">
@@ -17,157 +17,126 @@
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
   <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
+  <script src="angular-1.6.6/angular.min.js"></script>
 </head>
 
-<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+<body class="fixed-nav sticky-footer bg-dark" id="page-top" ng-controller="myWhats">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.html"></a>
+      <a class="navbar-brand" href="#"><i class="fa fa-user"></i><span>{{" "+nombreUser}} </span></a><input ng-model="id" type="hidden" class="form-control">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon pull-left"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav navbar-sidenav w3-center" id="exampleAccordion">
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+    <div class="collapse navbar-collapse" id="navbarResponsive" >
+      <ul class="navbar-nav navbar-sidenav w3-left" id="exampleAccordion" >
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <li class="nav-item dropdown" ng-hide="inputSearch">
+              <a  class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fa fa-fw fa-ellipsis-v text-white"></i>
+                  <span class="d-lg-none">Opciones
+                    <span class="badge badge-pill badge-warning">3</span>
+                  </span>
+                  <span class="indicator text-warning d-none d-lg-block">
+                    <i class="fa fa-fw fa-circle"></i>
+                  </span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="alertsDropdown">
+                  <a class="dropdown-item" href="#">
+                    <span class="text-black">
+                      Perfil
+
+                    </span>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">
+                    <span class="text-black">
+                      Configuración
+                    </span>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#" data-toggle="modal" data-target="#exampleModal">
+                    <span class="text-black">
+                      Cerrar sesión
+                    </span>
+                  </a>
+                </div>
+              </li>
+            </ul>
+          
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Buscador">
           <div class="card-footer small text-muted">
-          <i class="fa fa-fw fa-search"></i>
-        	<div class="input-group" hidden="true">
+              <i class="fa fa-fw fa-search text-white" ng-hide="iconSearch"></i>
+        	<div class="input-group" ng-hide="inputSearch">
     			<span class="input-group-addon"><i class="fa fa-search"></i></span>
-    			<input id="email" type="text" class="form-control" name="email" placeholder="Buscar Contacto">
-  			</div>
+                        <input id="email" type="text" class="form-control" ng-model="search" placeholder="Buscar Contacto">
   		</div>
-        </li>
-        <li class="nav-item " data-toggle="tooltip" data-placement="right" title="Charts">
-          <a class="nav-link" href="charts.html">
-            <i class="fa fa-fw fa-user"></i>
-            <span class="nav-link-text">Contacto</span><input type="hidden">
+      </div>
+    </li>
+    <li ng-repeat="c in contactos | filter:search" class="nav-item w3-center" data-toggle="tooltip" data-placement="right" ng-click="showMessage(id,c.idUsuario)" >
+          <a class="nav-link" >
+            <i class="fa fa-user" ></i>
+            <input type="hidden" value="{{c.idUsuario}}">
+            <span class="nav-link-text">  {{c.nombre}}</span>
           </a>
         </li>
+        </ul>
         
-      </ul>
-      <ul class="navbar-nav sidenav-toggler">
+      <ul class="navbar-nav sidenav-toggler " ng-click="hideSearch()">
         <li class="nav-item">
           <a class="nav-link text-center" id="sidenavToggler">
             <i class="fa fa-fw fa-angle-left"></i>
           </a>
         </li>
+        
       </ul>
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fa fa-fw fa-envelope"></i>
-            <span class="d-lg-none">Messages
-              <span class="badge badge-pill badge-primary">12 New</span>
-            </span>
-            <span class="indicator text-primary d-none d-lg-block">
-              <i class="fa fa-fw fa-circle"></i>
-            </span>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="messagesDropdown">
-            <h6 class="dropdown-header">New Messages:</h6>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-              <strong>David Miller</strong>
-              <span class="small float-right text-muted">11:21 AM</span>
-              <div class="dropdown-message small">Hey there! This new version of SB Admin is pretty awesome! These messages clip off when they reach the end of the box so they don't overflow over to the sides!</div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-              <strong>Jane Smith</strong>
-              <span class="small float-right text-muted">11:21 AM</span>
-              <div class="dropdown-message small">I was wondering if you could meet for an appointment at 3:00 instead of 4:00. Thanks!</div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-              <strong>John Doe</strong>
-              <span class="small float-right text-muted">11:21 AM</span>
-              <div class="dropdown-message small">I've sent the final files over to you for review. When you're able to sign off of them let me know and we can discuss distribution.</div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item small" href="#">View all messages</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fa fa-fw fa-bell"></i>
-            <span class="d-lg-none">Alerts
-              <span class="badge badge-pill badge-warning">6 New</span>
-            </span>
-            <span class="indicator text-warning d-none d-lg-block">
-              <i class="fa fa-fw fa-circle"></i>
-            </span>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="alertsDropdown">
-            <h6 class="dropdown-header">New Alerts:</h6>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-              <span class="text-success">
-                <strong>
-                  <i class="fa fa-long-arrow-up fa-fw"></i>Status Update</strong>
-              </span>
-              <span class="small float-right text-muted">11:21 AM</span>
-              <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-              <span class="text-danger">
-                <strong>
-                  <i class="fa fa-long-arrow-down fa-fw"></i>Status Update</strong>
-              </span>
-              <span class="small float-right text-muted">11:21 AM</span>
-              <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-              <span class="text-success">
-                <strong>
-                  <i class="fa fa-long-arrow-up fa-fw"></i>Status Update</strong>
-              </span>
-              <span class="small float-right text-muted">11:21 AM</span>
-              <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item small" href="#">View all alerts</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
-            <i class="fa fa-fw fa-sign-out"></i>Salir</a>
-        </li>
-      </ul>
+        
     </div>
   </nav>
-  <div class="content-wrapper">
+  <div class="content-wrapper" >
     <div class="container-fluid">
       <!-- Breadcrumbs-->
-      
+      <div class="row" ng-hide="hideWhats">
+          <div class="col-md-12 w3-center w3-padding-32 w3-opacity" >
+              <img class="" src="Whats.png" height="400px" width="400px">
+          </div>
+      </div>
       <!-- Area Chart Example-->
-      <div class="card mb-3" >
+      <div class="card mb-3" ng-hide="message">
         <div class="card-header">	
          <div class="row">
          			<div class="col-md-8">
-         				<i class="fa fa-user w3-text-blue"></i> Nombre Contacto 
+         				<i class="fa fa-user w3-text-blue"></i> {{contactoName}} 
+                                        <input type="hidden" ng-model="contactoId" >
          			</div>
          			<div class="col-md-4">
 						<div class="input-group">
 							<span class="input-group-addon"><i class="fa fa-search"></i></span>
-							<input id="email" type="text" class="form-control" placeholder="Buscar Mensajes">
+							<input ng-model="searchMessage" type="text" class="form-control" placeholder="Buscar Mensajes">
 						</div>
         			</div>
          		</div>
         </div>
         <div class="card-body">
-          	<div class="row">
-          		
+          	<div class="row" data-spy="scroll" data-target="#myScrollspy" data-offset="20">
+          		<div id="Layer1" style="width:100%; height:400px; overflow: scroll;"><br>
+                            <div class="container">
+                                <div ng-repeat="m in mensajes | filter:searchMessage" class="row w3-red w3-padding-16">
+                                    <div ng-hide="hideM1" class="col-md-6 w3-center">
+                                        {{m.mensaje.texto}}
+                                    </div>
+                                    <div ng-hide="hideM2" class="col-md-6 w3-center">
+                                        {{m.mensaje.texto}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
           	</div>
         </div>
         <div class="card-footer small text-muted">
         	<div class="input-group">
-    			<span class="input-group-addon"><i class="fa fa-send w3-text-blue"></i></span>
-    			<input id="email" type="text" class="form-control" name="email" placeholder="Escribe un mensaje aqui">
+    			<span ng-click="enviarMensaje($scope.messageBox)" class="input-group-addon"><i class="fa fa-send w3-text-blue"></i></span>
+    			<input ng-model="messageBox"  type="text" class="form-control"  placeholder="Escribe un mensaje aqui">
   			</div>
   		</div>
       </div>
@@ -190,16 +159,12 @@
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
+          <div class="modal-header w3-red">
+            <h5 class="modal-title" id="exampleModalLabel">Estas seguro de Cerrar Sesion?</h5>
           </div>
-          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="login.html">Logout</a>
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+            <a class="btn btn-primary" ng-click="closeSession()">Salir</a>
           </div>
         </div>
       </div>
@@ -222,3 +187,120 @@
 </body>
 
 </html>
+<script>
+    /*
+        $.post("Consultas",{tipo:"s"},function(data){
+            if(data.result==true){
+                alert("jiji");
+            }
+        });
+    */
+	var app = angular.module('myApp',[]);
+	
+	app.controller('myWhats', function($scope, $http, $location, $window, $timeout, $interval){
+            $scope.messageBox = "";
+            //Obtener Sesion Id
+                $http.post("Consultas",{
+                    tipo:"obtenerId"
+                }).then(function(response) {
+                    //console.log(response);
+                        $scope.idUsuario = response.data.usuario[0].idUsuario;
+                        $scope.nombreUser = response.data.usuario[0].nombre;
+                        $scope.user = response.data.usuario;
+                        console.log($scope.user);
+                        $scope.id = $scope.idUsuario;
+                        });
+                //
+                 $timeout(function () {
+                    $http.post("Consultas",{
+                        tipo: "contactos",
+                        idSession: $scope.id
+                    }).then(function(response) {
+                        $scope.contactos = response.data.contactos;
+                        console.log($scope.contactos );
+                        });
+		}, 1000);
+		
+                $scope.iconSearch = true;
+                $scope.inputSearch = false;
+                $scope.hideSearch = function(){
+                    $scope.search = "";
+                   if($scope.iconSearch == true){
+                       $scope.iconSearch = false;
+                   }else
+                       $scope.iconSearch = true;
+                   if($scope.inputSearch == false){
+                       $scope.inputSearch = true;
+                   }else
+                       $scope.inputSearch = false;
+                };
+                //Mostar Mensajes 
+                $scope.hideWhats = false;
+                $scope.message = true;
+                $scope.showMessage = function(idA,idB){
+                $scope.messageBox = "";
+                $scope.searchMessage ="";
+                $http.post("Consultas",{
+                    tipo: "mensajes",
+                    idA: idA,
+                    idB: idB
+                }).then(function(response) {
+                    $scope.contactoName = response.data.contacto[0].nombre;
+                    $scope.contactoId = response.data.contacto[0].idUsuario;
+                        $scope.hideWhats = true;
+                        $scope.message = false;
+                    });
+                
+                
+                $interval(function () {
+		$http.post("Consultas",{
+                    tipo: "mensajes",
+                    idA: idA,
+                    idB: idB
+                }).then(function(response) {
+                    console.log(response);
+                    $scope.mensajes = response.data.mensaje;
+                    if(response.data.mensaje.idUsuario == $scope.id){
+                        
+                        $scope.hideM1 = true;
+                        $scope.hideM2 = false;
+                    }
+                     else{
+                        $scope.hideM1 = false;
+                        $scope.hideM2 = true;
+                     }   
+                    });
+	  	}, 5000);
+                
+                };
+                
+                
+                //Cerrar Sesion
+                $scope.closeSession = function(){
+                    $http.post("Consultas",{
+                    tipo: "cerrarSesion"
+                }).then(function(response) {
+                    $scope.regresar = response.data.result;
+                    if($scope.regresar == true)
+                        $window.location.href = "login.html";
+                        });
+                };
+                
+                $scope.enviarMensaje = function(messageBox){
+                    if($scope.messageBox != ""){
+                        $http.post("Consultas",{
+                            tipo: "enviarMensaje",
+                            mensaje:$scope.messageBox,
+                            idA: $scope.id,
+                            idB:$scope.contactoId
+                        }).then(function(response) {
+                                $scope.regresar = response.data.result;
+                                if($scope.regresar == true)
+                                    $window.location.href = "login.html";
+                            }); 
+                    }
+                  
+                };
+	});
+	
+</script>

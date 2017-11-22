@@ -6,8 +6,12 @@
 package dao;
 
 import hbn.HibernateUtil;
+import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Restrictions;
 import pojo.Contacto;
 import pojo.Usuario;
 
@@ -41,8 +45,31 @@ public class ContactoDAO {
             e.printStackTrace();
         }
     }
+    
+    public int getIdContactByUsers (int a, int b){
+        Usuario usuario11 = (Usuario) session.load(Usuario.class, a);
+        Usuario usuario22 = (Usuario) session.load(Usuario.class, b);
+        Criterion rest11 = Restrictions.and(Restrictions.eq("idUsuarioA", usuario22),
+                Restrictions.eq("idUsuarioB", usuario11));
+        Criterion rest22 = Restrictions.and(Restrictions.eq("idUsuarioB", usuario22),
+                Restrictions.eq("idUsuarioA", usuario11));
+
+        //obtiene id de contacto
+        List<Contacto> contacto = (List<Contacto>) session.createCriteria(Contacto.class)
+                .add(Restrictions.or(rest11, rest22)).list();
+        Contacto c = contacto.get(0);
+        return c.getIdContacto();
+    }
             
-            
+    public List<Usuario> getAllContactsByUser(int id){
+        Usuario a=(Usuario)session.load(Usuario.class,id);
+        return (List<Usuario>) this.session.createCriteria(Contacto.class)
+                .add(Restrictions.eq("idUsuarioA", a))
+                .setProjection(Projections.projectionList()
+                .add(Projections.property("idUsuarioB")))
+                .list();
+    }
+    
     public void close(){
         HibernateUtil.closeLocalSession();  
     }

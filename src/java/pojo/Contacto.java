@@ -5,6 +5,7 @@
  */
 package pojo;
 
+import com.google.gson.annotations.Expose;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Id;
@@ -24,12 +25,14 @@ public class Contacto {
     
  @Id @GeneratedValue
  @Column(name="idContacto", nullable = false)
- private int idUsuario;
+ private int idContacto;
  
+ @Expose
  @ManyToOne
  @JoinColumn(name="idUsuarioA", nullable = false)
  private Usuario idUsuarioA;
  
+ @Expose
  @ManyToOne
  @JoinColumn(name = "idUsuarioB", nullable=false)
  private Usuario idUsuarioB;
@@ -41,15 +44,15 @@ public class Contacto {
     /**
      * @return the idUsuario
      */
-    public int getIdUsuario() {
-        return idUsuario;
+    public int getIdContacto() {
+        return idContacto;
     }
 
     /**
      * @param idUsuario the idUsuario to set
      */
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setIdContacto(int idContacto) {
+        this.idContacto = idContacto;
     }
 
     /**

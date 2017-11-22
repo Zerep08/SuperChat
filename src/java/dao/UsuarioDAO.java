@@ -9,7 +9,9 @@ import hbn.HibernateUtil;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Restrictions;
 import pojo.Contacto;
 import pojo.Usuario;
 
@@ -62,6 +64,21 @@ public class UsuarioDAO {
                 ).list();
     }
     
+    public  Usuario getPersonaByPhonePassword(String phone, String password){
+        //Retorna
+        Usuario listaDePersonas=(Usuario)
+                session.createCriteria(Usuario.class)
+                .add(Restrictions.eq("telefono", phone))
+                .add(Restrictions.eq("contrasena", password)).uniqueResult();
+        return listaDePersonas;
+    }
+    
+    public  List<Usuario> getUserById(int id){
+        //Retorna
+        return (List<Usuario>) this.session.createCriteria(Usuario.class)
+                .add(Restrictions.eq("idUsuario", id))
+                .list();
+    }
     
     public void close(){
         HibernateUtil.closeLocalSession();  

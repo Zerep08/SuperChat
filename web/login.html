@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myApp">
 
 <head>
   <meta charset="utf-8">
@@ -15,51 +15,82 @@
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
   <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+	</script>
+  <script src="angular-1.6.6/angular.min.js"></script>
 </head>
 
-<body class="bg-dark">
+<body class="bg-dark" ng-controller="myPass">
   <div class="container w3-padding-64">
     <div class="card card-login mx-auto mt-5 ">
       <div class="card-header text-center"><i class="fa fa-user w3-text-blue"></i> Iniciar Sesion</div>
       <div class="card-body">
         <form>
+           <div class="col-md-12 alert alert-danger w3-padding-12 w3-center" ng-hide="oculto">
+			Celular y/o contraseña invalida
+		</div>
             <div class="input-group w3-padding-16">
                 <span class="input-group-addon"><i class="fa fa-mobile-phone"></i></span>
-                <input  type="text" class="form-control"  placeholder="Telefono">
+                <input  type="text" class="form-control"  placeholder="Celular"
+                ng-model="CelLog" style="border-color:{{colorCorLog}}" ng-change="corLogVer()">
               </div>
               <div class="input-group w3-padding-16">
-                  <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                  <input id="password" type="password"  class="form-control"  placeholder="Password">
+                  <span class="input-group-addon"><i class="fa fa-lock w3-text-yellow"></i></span>
+                  <input  type="password"  class="form-control"  placeholder="Contraseña"
+                  style="border-color:{{colorConLog}}" ng-change="conLogVer()" ng-model="ConLog">
                 </div>
-          <a class="btn btn-primary btn-block" href="index.html">Login</a>
+                
+          <input type="button" ng-disabled="disabled" ng-click="enviarLog()" class="btn btn-primary btn-block" value="Entrar">
         </form>
         <div class="text-center">
           
           <!-- Trigger the modal with a button -->
-          <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#myModal" style="margin-top:10px">Registrar una cuenta</button>  
+          <div class="text-center w3-padding-12 ">
+          <a class="d-block small mt-3" data-toggle="modal" ng-click="bloquear()" data-target="#myModal"><i class="fa fa-check-circle-o"></i> Registrar una Cuenta</a>
+        </div> 
           <!-- Modal -->
             <div class="modal fade" id="myModal" role="dialog">
               <div class="modal-dialog">
                 <div class="modal-content">
-                  <div class="modal-header w3-blue">
+                  <div class="modal-header w3-center w3-green">
                     <h4 class="modal-title w3-center"><i class="fa fa-user-plus"></i> Registro</h4>
                     </div>
                   <div class="modal-body">
-                    <div class="form-group">
-                      <input class="form-control" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Ingresa tu nombre de usuario">
-                      <div class="row" style="margin-top:10px">
-                        <div class="col-md-6">
-                            <input class="form-control" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Ingresa tu teléfono"  style="margin-bottom:10px">
-                        </div>
-                        <div class="col-md-6">
-                            <input class="form-control" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Ingresa tu contraseña">
-                        </div>
-                      </div>
-                    </div>
+					<div class="row ">
+						<div class="col-md-6 w3-padding-16">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-user w3-text-blue"></i></span>
+								<input ng-model="Nombre" name="paterno" type="text" class="form-control"  placeholder="Nombre de Usuario" style="border-color:{{colorPat}}" ng-change="patVer()">
+							</div>
+						</div>
+						<div class="col-md-6 w3-padding-16">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-mobile-phone w3-text-blue"></i></span>
+								<input ng-model="Celular"  name="materno" type="password" class="form-control"  placeholder="Celular" style="border-color:{{colorMat}}" ng-change="matVer()">
+							  </div>
+						</div>
+						
+					</div>
+                 <div class="row w3-padding-16">
+						<div class="col-md-12 w3-center">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-lock w3-text-yellow"></i></span>
+								<input name="password" type="password" class="form-control" placeholder="Contraseña" style="border-color:{{color}}" ng-model="passw1" ng-change="test()">
+							</div>
+						</div>
+					</div>
+					<div class="row w3-padding-16">
+						<div class="col-md-12 w3-center">
+							<div class="input-group ">
+								<span class="input-group-addon"><i class="fa fa-lock w3-text-yellow"></i></span>
+								<input name="" type="password" class="form-control" placeholder="Repetir Contraseña" style="border-color:{{color}}" ng-model="passw2" ng-change="test()">
+							</div>
+                                                    
+						</div>
+					</div>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-submit="modal">Enviar</button>
+                    <input type="button" class="btn btn-primary" ng-click="enviarRegistrar()"  ng-disabled="errorr || incomplete" ng-click="" value="Registarse">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                     </div>
                   </div>
@@ -68,6 +99,11 @@
             </div>
           <!-- Modal -->
         </div>
+      </div>
+      <div class="row">
+          <div class="col-md-12  w3-center w3-padding-64" ng-hide="loadHide">
+              <i class="fa fa-spinner fa-4x  w3-spin w3-text-white"></i>
+          </div>
       </div>
     </div>
   </div>
@@ -79,3 +115,118 @@
 </body>
 
 </html>
+<script>
+    /*
+        $.post("Consultas",{tipo:"s"},function(data){
+            if(data.result==true){
+                alert("jiji");
+            }
+        });
+    */
+	var app = angular.module('myApp',[]);
+	
+	app.controller('myPass', function($scope, $http, $location, $window){
+                $scope.loadHide=true;
+                $scope.oculto = true;
+                $scope.regHide = true;
+                $scope.enviarLog = function() {
+                    $scope.loadHide=false;
+                    $http.post("Consultas",{
+                    tipo: "entrar",
+                    phone: $scope.CelLog,
+                    password: $scope.ConLog
+                }).then(function(response) {
+                                $scope.loadHide=true;
+                                $scope.myData = response.data.result;
+                                if($scope.myData == true)
+                                        $scope.oculto = false;
+                                else
+                                    $window.location.href = "index.html";
+                        });
+		};
+                
+                $scope.enviarRegistrar = function() {
+                        $http.post("Consultas",{
+				tipo: "registrar",
+				nombre: $scope.Nombre,
+                                celular: $scope.Celular,
+                                password: $scope.passw1
+                        }).then(function(response) {
+                                $scope.myData = response.data.result;
+                                if($scope.myData == true)
+                                        $window.location.href = "index.html";
+                        });
+		};
+		$scope.verificar = function() {
+			if (($scope.passw1 !== $scope.passw2) || $scope.passw1 == "" || $scope.passw2 == "" || $scope.Nombre== ""  || $scope.Celular== ""){
+				$scope.error = true;
+			}
+			else
+			$scope.error = false;
+  			if (($scope.passw1 !== $scope.passw2) || !$scope.Nombre.length ||
+  			!$scope.Nombre.length ||
+  			!$scope.Celular.length || !$scope.passw1.length || !$scope.passw2.length) {
+    		$scope.incomplete = true;
+  			}
+			else 
+				$scope.incomplete = false;
+		};
+		$scope.test = function() {
+			if (($scope.passw1 != $scope.passw2) || ($scope.passw1 == "" && $scope.passw2 == ""))
+				$scope.color = "red";
+			else
+				$scope.color = "ligth-blue";
+			$scope.verificar();
+		};
+		$scope.patVer = function() {
+			if (($scope.Nombre == ""))
+				$scope.colorPat = "red";
+			else
+				$scope.colorPat = "ligth-blue";
+			$scope.verificar();
+		};
+		$scope.matVer = function() {
+			if (($scope.Celular == ""))
+				$scope.colorMat = "red";
+			else
+				$scope.colorMat = "ligth-blue";
+			$scope.verificar();
+		};
+		$scope.disabled = true;
+		//Celular
+		$scope.corLogVer = function() {
+			if (($scope.CelLog == "")){
+				$scope.colorCorLog = "red";
+			}
+			else{
+				$scope.colorCorLog = "ligth-blue";
+			}
+			$scope.v();
+		};
+		$scope.conLogVer = function() {
+			if (($scope.ConLog == "")){
+				$scope.colorConLog = "red";
+			}
+			else{
+				$scope.colorConLog = "ligth-blue";
+			}
+			$scope.v();
+		};
+		$scope.v = function(){
+			if (($scope.ConLog == "" || $scope.CelLog == "" || !$scope.ConLog.length || !$scope.CelLog.length)){
+				$scope.disabled = true;
+			}
+			else{
+				$scope.disabled = false;
+			}
+		}
+		$scope.bloquear = function() {
+			$scope.incomplete = true;
+			$scope.Nombre = "";
+			$scope.Celular = "";
+			$scope.passw1 = "";
+			$scope.passw2 = "";
+			};
+	});
+	
+</script>

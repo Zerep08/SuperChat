@@ -5,6 +5,7 @@
  */
 package pojo;
 
+import com.google.gson.annotations.Expose;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -23,36 +24,46 @@ import javax.persistence.Table;
 @Table(name="mensaje",catalog="whatsApp")
 public class Mensaje {
     
+    @Expose
     @Id @GeneratedValue
     @Column(name="idMensaje")
     private  int idMensaje;
     
+    @Expose
     @Column(name="leido",nullable=false)
     private boolean leido;
     
+    @Expose
     @Column(name="enviado",nullable=false)
     private boolean enviado;
     
+    @Expose
     @Column(name="recibido",nullable=false)
     private boolean recibido;
     
+    @Expose
     @Column(name="dt_leido",nullable=false)
     private Date dt_leido;
     
+    @Expose
     @Column(name="dt_enviado",nullable=false)
     private Date dt_enviado;
     
+    @Expose
     @Column(name="dt_recibido",nullable=false)
     private Date dt_recibido;
     
+    @Expose
     @ManyToOne
     @JoinColumn(name="idContenido",nullable=false)
     private Contenido idContenido;
     
+    @Expose
     @ManyToOne
-    @Column(name="idUsuario",nullable=false)
+    @JoinColumn(name="idUsuario",nullable=false)
     private Usuario idUsuario;
     
+    @Expose
     @ManyToOne
     @JoinColumn(name="idContacto",nullable=false)
     private Contacto idContacto;
