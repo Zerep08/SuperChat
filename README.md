@@ -14,9 +14,9 @@ Información del equipo:
 * [Enid Medina](https://www.linkedin.com/in/enid-medina-l%C3%B3pez-3423ba153/): Front-End
 * [Elizabeth Vera](https://www.linkedin.com/in/maria-elizabeth-vera-meza-a2b623153/): Front-End y base de datos.
 * [Serguio Jimenez](https://www.linkedin.com/in/sergio-jimenez-ssj/): Back-End y base de datos.
-* [Francisco Peréz] (https://www.linkedin.com/in/francisco-perez-garcia-035b00b3): Back-End
+* [Francisco Peréz](https://www.linkedin.com/in/francisco-perez-garcia-035b00b3): Back-End
 * Yhair Díaz: Back-End
-* [Enrique Peña] (https://www.linkedin.com/in/enrique-pe%C3%B1a-ochoa-18b7b1153/) : Back-End
+* [Enrique Peña](https://www.linkedin.com/in/enrique-pe%C3%B1a-ochoa-18b7b1153/) : Back-End
 
 
 Instrucciones para el usuario:
