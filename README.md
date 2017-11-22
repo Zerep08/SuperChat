@@ -18,6 +18,8 @@ Información del equipo:
 * Yhair Díaz: Back-End
 * [Enrique Peña](https://www.linkedin.com/in/enrique-pe%C3%B1a-ochoa-18b7b1153/) : Back-End
 
+![WhatsAppIndez](whatsapp1.png)
+
 
 Instrucciones para el usuario:
 1. Ingresa a la página web
