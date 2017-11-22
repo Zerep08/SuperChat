@@ -18,16 +18,18 @@ Información del equipo:
 * Yhair Díaz: Back-End
 * [Enrique Peña](https://www.linkedin.com/in/enrique-pe%C3%B1a-ochoa-18b7b1153/) : Back-End
 
-![WhatsAppIndez](whatsapp1.png)
+![WhatsAppIndex](whatsapp1.png)
 
 
 Instrucciones para el usuario:
 1. Ingresa a la página web
 2. Registro (Ingresa tus datos)
+![WhatsAppRegistro](whatsapp3.png)
 3. Revisa tus datos
 4. Aceptar
 5. Confirmar número de télefono
 6. Ingresa con tus datos y empieza a conectar con tus amigos y conocidos!
+![WhatsAppLogin](whatsapp2.png)
 
 Creditos y agradecimientos: 
 Agradecemos a nuestro profesor [Rigo Alvaréz](https://www.linkedin.com/in/alfredo-rigoberto-alvarez-suarez-039891b0/)
